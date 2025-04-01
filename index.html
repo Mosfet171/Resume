@@ -3,81 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkady Mospan's Resume</title>
+    <title>Your Interactive Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: fadeIn 1s ease-in-out;
         }
         .container {
-            width: 80%;
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
+            width: 85%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: slideUp 1s ease-in-out;
         }
         h1, h2 {
-            color: #0073e6;
+            text-align: center;
+            color: #ffcc00;
         }
         .section {
             margin-bottom: 20px;
         }
         .toggle {
             cursor: pointer;
-            color: #0073e6;
-            text-decoration: underline;
+            text-align: center;
+            background: #ffcc00;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .toggle:hover {
+            background: #ffaa00;
         }
         .content {
             display: none;
             margin-top: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        li:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Arkady Mospan</h1>
-        <p><strong>IT Specialist | Entrepreneur | Developer</strong></p>
+        <h1>Your Name</h1>
+        <p style="text-align: center; font-weight: bold;">IT Specialist | Entrepreneur | Developer</p>
         
         <div class="section">
-            <h2 class="toggle">About Me</h2>
+            <div class="toggle">About Me</div>
             <div class="content">
-                <p>Passionate about IT, business, and problem-solving. Entrepreneur with a background in computer engineering and experience in hospitality, travel, and algorithms development.</p>
+                <p>Passionate about IT, business, and problem-solving. Entrepreneur with a background in computer engineering and experience in hospitality, distribution, and software development.</p>
             </div>
         </div>
         
         <div class="section">
-            <h2 class="toggle">Experience</h2>
+            <div class="toggle">Experience</div>
             <div class="content">
                 <ul>
-                    <li><strong>Co-Founder & Manager - Gecko Hostel</strong> (Managed operations, online presence, HR, MR, stocks and customer experience)</li>
-                    <li><strong>Co-Founder & Manager - Cactus Bar</strong> (Built a bar and a beach (yes, built))</li>
-  
+                    <li><strong>Founder - Gecko Hostel</strong> (Managed operations, IT infrastructure, and customer experience)</li>
+                    <li><strong>Founder - Cactus Bar</strong> (Built a fusion restaurant, implemented POS systems, and digital marketing)</li>
+                    <li><strong>IT & Business Consultant</strong> (Worked on digital solutions, automation, and IT strategy)</li>
                 </ul>
             </div>
         </div>
         
         <div class="section">
-            <h2 class="toggle">Skills</h2>
+            <div class="toggle">Skills</div>
             <div class="content">
                 <ul>
                     <li>Software Development (Python, JavaScript, HTML, CSS)</li>
-                    <li>TO ADD Later</li>
+                    <li>Cloud Computing & Cybersecurity</li>
                     <li>Business Strategy & Digital Transformation</li>
                 </ul>
             </div>
         </div>
         
         <div class="section">
-            <h2 class="toggle">Projects</h2>
+            <div class="toggle">Projects</div>
             <div class="content">
                 <ul>
-                    <li>ADD DASSAULT</li>
-                    <li>ADD CV from EN</li>
+                    <li>Developed an automated booking system for hostels.</li>
+                    <li>Built a POS and inventory management system for bars.</li>
+                    <li>Worked on website development and cloud-based business solutions.</li>
                 </ul>
             </div>
         </div>
@@ -87,7 +130,12 @@
         document.querySelectorAll('.toggle').forEach(item => {
             item.addEventListener('click', () => {
                 const content = item.nextElementSibling;
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+                    content.style.display = 'block';
+                }
             });
         });
     </script>
