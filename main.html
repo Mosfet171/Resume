@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkady Mospan's Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #0073e6;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .toggle {
+            cursor: pointer;
+            color: #0073e6;
+            text-decoration: underline;
+        }
+        .content {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Arkady Mospan</h1>
+        <p><strong>IT Specialist | Entrepreneur | Developer</strong></p>
+        
+        <div class="section">
+            <h2 class="toggle">About Me</h2>
+            <div class="content">
+                <p>Passionate about IT, business, and problem-solving. Entrepreneur with a background in computer engineering and experience in hospitality, travel, and algorithms development.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="toggle">Experience</h2>
+            <div class="content">
+                <ul>
+                    <li><strong>Co-Founder & Manager - Gecko Hostel</strong> (Managed operations, online presence, HR, MR, stocks and customer experience)</li>
+                    <li><strong>Co-Founder & Manager - Cactus Bar</strong> (Built a bar and a beach (yes, built))</li>
+  
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="toggle">Skills</h2>
+            <div class="content">
+                <ul>
+                    <li>Software Development (Python, JavaScript, HTML, CSS)</li>
+                    <li>TO ADD Later</li>
+                    <li>Business Strategy & Digital Transformation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="toggle">Projects</h2>
+            <div class="content">
+                <ul>
+                    <li>ADD DASSAULT</li>
+                    <li>ADD CV from EN</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle').forEach(item => {
+            item.addEventListener('click', () => {
+                const content = item.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
