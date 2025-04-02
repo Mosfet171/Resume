@@ -72,6 +72,8 @@
             overflow-x: hidden;
             overflow-wrap: break-word; 
             white-space: normal;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease, max-height 0.5s ease, transform 0.5s ease;
         }
         .timeline-item {
             position: relative;
@@ -146,6 +148,28 @@
         @keyframes b{
           50% {background-position:0 -100%,0 0}
         }
+        .typing-full {
+          color:#0000;
+          background:
+            linear-gradient(#00FF33 0 0) 0 50%/150% 95%,
+            linear-gradient(#00FF33 0 0) 0 0  /100% 100%;
+          -webkit-background-clip:padding-box,text;
+          background-clip:padding-box,text;
+          background-repeat:no-repeat;
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+          animation: 
+           tfull 1s forwards,
+           bfull 1s .8s forwards;
+        }
+
+        @keyframes tfull{
+          from {background-size:0 95%,0 100%}
+        }
+        @keyframes bfull{
+          100% {background-position:-200% 50%,0 0}
+        }
+
         .two-column-container {
             display: flex;
             flex-wrap: wrap;
@@ -195,7 +219,7 @@
 <span class="brush-highlight">About Me</span></h2>
             <div id="about" class="timeline-container" style="display: none;">
                 <div id="aboutme" class="description">
-                    <span class="typing" style="--n:1000">
+                    <span class="typing-full" style="--n:1000">
                         Once upon a time, in a land of algorithms and coffee, a Computer Engineering grad discovered that life is more than just coding.<br><br> 
 
                         So, he packed his bags and hit the road, exploring the world one passport stamp at a time. By day, he’s a business mogul in Vietnam, opening businesses that mix tech, culture, and a lot of fun. By night, he’s a DJ spinning hard beats. <br><br>
@@ -303,6 +327,7 @@
         function toggleSection(section) {
             const sectionElement = document.getElementById(section);
             sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
+
         }
 
         function toggleSectionTwoCols(sectionId) {
