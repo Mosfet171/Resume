@@ -3,141 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Interactive Resume</title>
+    <title>Arka's Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
+            background: #000;
+            color: #00FF33;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             animation: fadeIn 1s ease-in-out;
+            overflow-x: hidden;
+        }
+        .emphase {
+            color: #A883BA;
         }
         .container {
-            width: 85%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 90%;
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             box-shadow: 0 0 20px rgba(0,0,0,0.3);
             border-radius: 15px;
             backdrop-filter: blur(10px);
             animation: slideUp 1s ease-in-out;
+            text-align: left;
+            padding-left: 40px;
+
+            overflow-x: hidden;
+            overflow-wrap: break-word; 
+            white-space: normal; 
+            max-width: 1000px;
         }
-        h1, h2 {
-            text-align: center;
-            color: #ffcc00;
+        }
+        h1, h2, h3 {
+            color: #00FF33;
+
         }
         .section {
-            margin-bottom: 20px;
+            margin-top: 30px;
         }
-        .toggle {
-            cursor: pointer;
-            text-align: center;
-            background: #ffcc00;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: 0.3s;
+        .brush-highlight {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
         }
-        .toggle:hover {
-            background: #ffaa00;
+        .brush-highlight::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 100%;
+            height: 25px;
+            background: rgba(255, 255, 0, 0.5);
+            z-index: -1;
+            transform: rotate(-2deg);
+            border-radius: 3px;
         }
-        .content {
-            display: none;
-            margin-top: 10px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            animation: fadeIn 0.5s ease-in-out;
+        .timeline-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            overflow-wrap: break-word; 
+            white-space: normal;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
+        .timeline-item {
+            position: relative;
+            display: inline-block;
+            width: 220px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 8px;
-            transition: 0.3s;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
         }
-        li:hover {
+        .timeline-item:hover {
+            transform: scale(1.05);
             background: rgba(255, 255, 255, 0.3);
         }
+        .timeline-item:active {
+            transform: scale(1.2);
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #A883BA;
+        }
+        .description {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .description.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .typing {
+          font-family: monospace;
+          color:#0000;
+          background:
+            linear-gradient(-90deg,#00FF33 10px,#0000 0) 10px 0,
+            linear-gradient(#00FF33 0 0) 0 0;
+          background-size:calc(var(--n)*1ch) 200%;
+          -webkit-background-clip:padding-box,text;
+          background-clip:padding-box,text;
+          background-repeat:no-repeat;
+          animation: 
+            b .7s infinite steps(1),   
+            t calc(var(--n)*.02s) steps(var(--n)) forwards;
+        }
+        @keyframes t{
+          from {background-size:0 200%}
+        }
+        @keyframes b{
+          50% {background-position:0 -100%,0 0}
+        }
+        .two-column-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+            margin-top: 10px;
+            opacity: 0;  
+            max-height: 0;
+            overflow: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease, max-height 0.5s ease, transform 0.5s ease;
+        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .column {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+
+        /* Hidden state */
+        .hidden {
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(-10px);
         }
+
+        /* Visible state */
+        .visible {
+            opacity: 1;
+            max-height: 550px; /* Adjust based on content */
+            transform: translateY(0);
+        }
+
+
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your Name</h1>
-        <p style="text-align: center; font-weight: bold;">IT Specialist | Entrepreneur | Developer</p>
+        <h1>Arkady Mospan</h1>
+        <p><strong><span class="emphase">Chief Sroblem Prolver | Entrepreneur | Developer</span></strong></p>
         
         <div class="section">
-            <div class="toggle">About Me</div>
-            <div class="content">
-                <p>Passionate about IT, business, and problem-solving. Entrepreneur with a background in computer engineering and experience in hospitality, distribution, and software development.</p>
+            <h2 onclick="toggleSection('about'); setTimeout(() => showDescription('aboutme'), 200);">
+<span class="brush-highlight">About Me</span></h2>
+            <div id="about" class="timeline-container" style="display: none;">
+                <div id="aboutme" class="description">
+                    <span class="typing" style="--n:1000">
+                        Once upon a time, in a land of algorithms and coffee, a Computer Engineering grad discovered that life is more than just coding.<br><br> 
+
+                        So, he packed his bags and hit the road, exploring the world one passport stamp at a time. By day, he’s a business mogul in Vietnam, opening businesses that mix tech, culture, and a lot of fun. By night, he’s a DJ spinning hard beats. <br><br>
+
+                        He's now back in Europe, ready to code again and tell his stories. <br><br>
+                    </span>
+                </div>
+
+                <p>If you need someone who codes <i><span class="emphase">neat</span></i>, works <i><span class="emphase">hard</span></i>, smiles <i><span class="emphase">strong</span></i>, and knows how to put a <i><span class="emphase">nice</span></i> ambiance, I’m your guy!</p>
+
+                <div class="info-cards">
+                    <div class="info-card"><strong>Email:</strong> arkadym@live.be</div>
+                    <div class="info-card"><strong>Nationality:</strong> Belgian</div>
+                    <div class="info-card"><strong>Location:</strong> Brussels, Belgium</div>
+                    <div class="info-card"><strong>Pet Peeve:</strong> When the Wi-Fi signal is stronger than my will to work.</div>
+                </div>
             </div>
-        </div>
-        
+
+        </div>  
+
+        <!-- Education Section -->
         <div class="section">
-            <div class="toggle">Experience</div>
-            <div class="content">
-                <ul>
-                    <li><strong>Founder - Gecko Hostel</strong> (Managed operations, IT infrastructure, and customer experience)</li>
-                    <li><strong>Founder - Cactus Bar</strong> (Built a fusion restaurant, implemented POS systems, and digital marketing)</li>
-                    <li><strong>IT & Business Consultant</strong> (Worked on digital solutions, automation, and IT strategy)</li>
-                </ul>
+            <h2 onclick="toggleSection('education')"><span class="brush-highlight">Education</span></h2>
+            <div id="education" class="timeline-container" style="display: none;">
+                <div class="timeline-item" onclick="showDescription('edu1')"><span class="timeline-date">2016-2019</span><br><strong>Bachelor's in Engineering Sciences</strong></div>
+                <div class="timeline-item" onclick="showDescription('edu2')"><span class="timeline-date">2020-2022</span><br><strong>Master's in Computer Engineering</strong></div>
             </div>
+            <div id="edu1" class="description"><span class="typing" style="--n:200">Studied core engineering principles in the prestigious Royal Military Academy.</span></div>
+            <div id="edu2" class="description"><span class="typing" style="--n:500">Turned over to the dark side of engineering by specializing in Computer Engineering. Did that in ULB (Université Libre de Bruxelles), with a major in <i>computational intelligence and optimization</i>, minor in <i>cybersecurity</i>. My thesis was then in a totally different field, as its title suggests: "Design of a force-feedback human-machine interface for an endoscopic application".</span></div>
         </div>
-        
+
+
+        <!-- Experience Section -->  
         <div class="section">
-            <div class="toggle">Skills</div>
-            <div class="content">
-                <ul>
-                    <li>Software Development (Python, JavaScript, HTML, CSS)</li>
-                    <li>Cloud Computing & Cybersecurity</li>
-                    <li>Business Strategy & Digital Transformation</li>
-                </ul>
+            <h2 onclick="toggleSection('experience')"><span class="brush-highlight">Experience</span></h2>
+            <div id="experience" class="timeline-container" style="display: none;">
+                <div class="timeline-item" onclick="showDescription('desc1')"><span class="timeline-date">2016-2021</span><br><strong>Belgian Defence</strong></div>
+                <div class="timeline-item" onclick="showDescription('desc2')"><span class="timeline-date">2021-2023</span><br><strong>Events, Food & Beverages</strong></div>
+                <div class="timeline-item" onclick="showDescription('desc3')"><span class="timeline-date">2023-2025</span><br><strong>Entrepreneur</strong></div>
             </div>
+            <div id="desc1" class="description"><span class="typing" style="--n:200">As students in the Royal Military Academy, we also are active members of the Belgian Defence. <br> I was a Non-Commissioned Officer from 2016 to 2019, and then took an oath and became an Officer.</span></div>
+
+            <div id="desc2" class="description"><span class="typing" style="--n:500">While finishing my Master's, and preparing for my long travel, I was flexi-jobbing in different places. <br> I was a bartender in the fancy <span class="emphase">C12</span> nightclub, a waiter for the delicious <span class="emphase">Gueuleton</span> caterer, and a multi-purpose staff for <span class="emphase">Hey Charlie.</span></span></div>
+
+            <div id="desc3" class="description"><span class="typing" style="--n:500">The initial purpose was to travel South-East Asia. Which I did, but while in Vietnam, I also founded a bar, then co-founded and managed another bar, and finally co-founded and managed a backpackers hostel, which is now one of the most popular in the region ! It's the <i><span class="emphase">Gecko Backpackers Hostel</span></i> in Tam Coc, Ninh Binh Region, Vietnam.</span></div>
         </div>
-        
+
+        <!-- Projects  --> 
         <div class="section">
-            <div class="toggle">Projects</div>
-            <div class="content">
-                <ul>
-                    <li>Developed an automated booking system for hostels.</li>
-                    <li>Built a POS and inventory management system for bars.</li>
-                    <li>Worked on website development and cloud-based business solutions.</li>
-                </ul>
+            <h2 onclick="toggleSection('projects')"><span class="brush-highlight">Projects</span></h2>
+            <div id="projects" class="timeline-container" style="display: none;">
+                <div class="timeline-item" onclick="showDescription('proj1')"><span class="timeline-date">2018</span><br><strong>Dassault UAV Challenge</strong></div>
+                <div class="timeline-item" onclick="showDescription('proj2')"><span class="timeline-date">2023</span><br><strong>FOSDEM</strong></div>
+                <div class="timeline-item" onclick="showDescription('proj3')"><span class="timeline-date">2023</span><br><strong>TMPL</strong></div>
+       
+            </div>
+            <div id="proj1" class="description"><span class="typing" style="--n:500">With the "<i>171 POL</i>" dream team, we managed to <i>win</i> the 2018 edition of the reputable UAV Challenge organized by Dassault Aviation. <br> For the finals that happened in Switzerland, we were the only team to be able to successfully execute all the missions, which launched us to the first place, in front of many renowned Belgian, French, and Swiss engineering universities.</span></div>
+            <div id="proj2" class="description"><span class="typing" style="--n:500">I was part of the team organizing the 2023 FOSDEM, one of the biggest open source developers meeting worldwide ! <br>That year, while celebrating 25 years of open-source(ness) I was in the 3-team of beverages manager, making sure that the <span class="emphase">780</span> speakers and <span class="emphase"> 8000 </span> (!) attendees could quench their thirst properly with one of our <span class="emphase"> 60 </span> different beers. </span></div>
+            <div id="proj3" class="description"><span class="typing" style="--n:500">Later on that year, with the CI (Cercle Informatique), we decided to organize another cultural event.<br> We thus created "TomorrowPlaine", where I was designated general manager. For that first edition, we completely overpassed our expectations and managed to bring together a bit less than 1000 participants ! The event is now still running every year, and is well known in the university community. </span></div>
+        </div>
+
+
+            <div class="section">
+            <h2 onclick="toggleSectionTwoCols('mySection')">
+                <span class="brush-highlight">Languages</span>
+            </h2>
+            <div id="mySection" class="two-column-container hidden">
+                <div class="column">
+                    <h3 class="emphase">Natural Languages</h3>
+                    <p><strong>French</strong>: Native</p>
+                    <p><strong>English</strong>: C1/C2</p>
+                    <p><strong>Spanish</strong>: B2</p>
+                    <p><strong>Dutch</strong>: B1/B2 (needs to refresh)</p>
+                    <p><strong>Vietnamese</strong>: A2 </p>
+                    <p><strong>Russian</strong>: A1 </p>
+                </div>
+
+                <div class="column">
+                    <h3 class="emphase">Nerd Languages</h3>
+                    <p><strong>Python</strong>: experienced</p>
+                    <p><strong><span class="emphase">C/C++</span></strong>: intermediate/experienced</p>
+                    <p><strong><span class="emphase">Matlab</span></strong>: intermediate</p>
+                    <p><strong><span class="emphase">R</span></strong>: intermediate</p>
+                    <p><strong>Scheme</strong>: intermediate</p>
+                    <p><strong>Prolog</strong>: intermediate</p>
+                    <p><strong><span class="emphase">ASM (RISC)</span></strong>: beginner/intermediate</p>
+                    <p><strong>Java</strong>: beginner</p>
+                    <p><strong>Lua</strong>: beginner</p>
+                    <p style="font-family: monospace;"> In <span class="emphase">purple</span> are languages in which I'll need a refresh as it has been a long time since using them.</h4>
+                </div>
             </div>
         </div>
+
+
     </div>
 
     <script>
-        document.querySelectorAll('.toggle').forEach(item => {
-            item.addEventListener('click', () => {
-                const content = item.nextElementSibling;
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                } else {
-                    document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
-                    content.style.display = 'block';
-                }
+        function showDescription(id) {
+            document.querySelectorAll('.description').forEach(desc => {
+                desc.classList.remove('active');
             });
-        });
+            document.getElementById(id).classList.add('active');
+        }
+
+        function toggleSection(section) {
+            const sectionElement = document.getElementById(section);
+            sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSectionTwoCols(sectionId) {
+        let section = document.getElementById(sectionId);
+        if (section.classList.contains("hidden")) {
+            section.classList.remove("hidden");
+            section.classList.add("visible");
+        } else {
+            section.classList.remove("visible");
+            section.classList.add("hidden");
+        }
+    }
     </script>
 </body>
 </html>
