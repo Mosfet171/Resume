@@ -14,7 +14,7 @@
         <p><strong><span class="emphase">Chief Sroblem Prolver | Entrepreneur | Developer</span></strong></p>
         
         <div class="section">
-            <h2 class="brush-highlight" onclick="toggleSection('about'); setTimeout(() => showDescription('aboutme'), 200);">About Me</h2>
+            <h2 class="brush-highlight" onclick="toggleSection('about'); setTimeout(() => showDescription('aboutme'), 10);">About Me</h2>
             <div id="about" class="timeline-container" style="display: none;">
                 <div id="aboutme" class="description">
                     <span class="typing-full" style="--n:1000">
@@ -26,7 +26,7 @@
                     </span>
                 </div>
 
-                <p>If you need someone who codes <i><span class="emphase">neat</span></i>, works <i><span class="emphase">hard</span></i>, smiles <i><span class="emphase">strong</span></i>, and knows how to put a <i><span class="emphase">nice</span></i> ambiance, I’m your guy!</p>
+                <p>If you need someone who codes <i><span class="emphase">neat</span></i>, works <i><span class="emphase">hard</span></i>, smiles <i><span class="emphase">strong</span></i>, manages <i><span class="emphase">well</span></i>, and knows how to put a <i><span class="emphase">good</span></i> ambiance, I’m your guy!</p>
 
                 <div class="info-cards">
                     <div class="info-card"><strong>Email:</strong> arkadym@live.be</div>
@@ -80,10 +80,8 @@
 
 
         <div class="section">
-            <h2 onclick="toggleSectionTwoCols('mySection')">
-                <span class="brush-highlight">Languages</span>
-            </h2>
-            <div id="mySection" class="two-column-container hidden">
+            <h2 class="brush-highlight" onclick="toggleSectionTwoCols('languages')">Languages</h2>
+            <div id="languages" class="two-column-container hidden">
                 <div class="column">
                     <h3 class="emphase">Natural Languages</h3>
                     <p><strong>French</strong>: Native</p>
@@ -113,30 +111,6 @@
 
     </div>
 
-    <script>
-        function showDescription(id) {
-            document.querySelectorAll('.description').forEach(desc => {
-                desc.classList.remove('active');
-            });
-            document.getElementById(id).classList.add('active');
-        }
-
-        function toggleSection(section) {
-            const sectionElement = document.getElementById(section);
-            sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
-
-        }
-
-        function toggleSectionTwoCols(sectionId) {
-        let section = document.getElementById(sectionId);
-        if (section.classList.contains("hidden")) {
-            section.classList.remove("hidden");
-            section.classList.add("visible");
-        } else {
-            section.classList.remove("visible");
-            section.classList.add("hidden");
-        }
-    }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
