@@ -1,15 +1,12 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #000;
-    color: #00FF33;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    animation: fadeIn 1s ease-in-out;
-    overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #00FF33;
+  min-height: 100vh;
+  animation: fadeIn 1s ease-in-out;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -27,23 +24,29 @@ body {
 
 .container {
     width: 90%;
+    margin: 40px auto;
+
     background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    padding: 20px 40px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
     border-radius: 15px;
     backdrop-filter: blur(10px);
     animation: slideUp 1s ease-in-out;
-    text-align: left;
-    padding-left: 40px;
-
     overflow-x: hidden;
     overflow-wrap: break-word; 
     white-space: normal; 
     max-width: 1000px;
+    display: block;
 }
 
 h1, h2, h3 {
     color: #00FF33;
+}
+
+.section h2:hover {
+    cursor: pointer;
+    color: #A883BA;
+    transition: color 0.3s;
 }
 
 .arrow {
@@ -51,7 +54,7 @@ h1, h2, h3 {
 }
 
 .section {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .brush-highlight {
@@ -76,6 +79,7 @@ h1, h2, h3 {
 .timeline-container {
     display: flex;
     overflow-x: auto;
+    display: block;
     padding: 20px;
     white-space: nowrap;
     scroll-behavior: smooth;
@@ -192,13 +196,15 @@ h1, h2, h3 {
   100% {background-position:-200% 50%,0 0}
 }
 
+
 .two-column-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 25px;
-    margin-top: 10px;
-    opacity: 0;  
+    margin-top: 0px;
+    margin-bottom: 0px;
+    opacity: 0;
     max-height: 0;
     overflow: hidden;
     transform: translateY(-10px);
@@ -207,8 +213,8 @@ h1, h2, h3 {
 
 .column {
     flex: 1;
-    min-width: 200px;
-    padding: 15px;
+    min-width: 100px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
 }

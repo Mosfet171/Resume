@@ -21,3 +21,4 @@ function toggleSectionTwoCols(sectionId) {
         section.classList.add("hidden");
     }
 }
+

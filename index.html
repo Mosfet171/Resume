@@ -26,7 +26,7 @@
                     </span>
                 </div>
 
-                <p>If you need someone who codes <i><span class="emphase">neat</span></i>, works <i><span class="emphase">hard</span></i>, smiles <i><span class="emphase">strong</span></i>, manages <i><span class="emphase">well</span></i>, and knows how to put a <i><span class="emphase">good</span></i> ambiance, I’m your guy!</p>
+                <p>If you need someone who codes <i><span class="emphase">neat</span></i>, works <i><span class="emphase">hard</span></i>, smiles <i><span class="emphase">strong</span></i>, manages <i><span class="emphase">well</span></i>, and knows how to create a <i><span class="emphase">great</span></i> atmosphere, I’m your guy!</p>
 
                 <div class="info-cards">
                     <div class="info-card"><strong>Email:</strong> arkadym@live.be</div>
@@ -46,39 +46,103 @@
                 <div class="timeline-item" onclick="showDescription('edu2')"><span class="timeline-date">2020-2022</span><br><strong>Master's in Computer Engineering</strong></div>
             </div>
             <div id="edu1" class="description"><span class="typing" style="--n:200">Studied core engineering principles in the prestigious Royal Military Academy.</span></div>
-            <div id="edu2" class="description"><span class="typing" style="--n:500">Turned over to the dark side of engineering by specializing in Computer Engineering. Did that in ULB (Université Libre de Bruxelles), with a major in <i>computational intelligence and optimization</i>, minor in <i>cybersecurity</i>. My thesis was then in a totally different field, as its title suggests: "Design of a force-feedback human-machine interface for an endoscopic application".</span></div>
+            <div id="edu2" class="description"><span class="typing" style="--n:500">Turned over to the dark side of engineering by specializing in Computer Engineering. Completed at ULB (Université Libre de Bruxelles), with a major in <i>computational intelligence and optimization</i> and a minor in <i>cybersecurity</i>. My thesis was then in a totally different field, as its title suggests: "Design of a force-feedback human-machine interface for an endoscopic application".</span></div>
         </div>
 
-        <!-- Experience -->  
+        <!-- Experience --> 
         <div class="section">
-            <h2 class="brush-highlight" onclick="toggleSection('experience')">Experience</h2>
+            <h2 onclick="toggleSection('experience')" class="brush-highlight">Experience</h2>
             <div id="experience" class="timeline-container" style="display: none;">
                 <div class="timeline-item" onclick="showDescription('beldef')"><span class="timeline-date">2016-2021</span><br><strong>Belgian Defence</strong></div>
                 <div class="timeline-item" onclick="showDescription('horeca')"><span class="timeline-date">2021-2023</span><br><strong>Events, Food & Beverages</strong></div>
                 <div class="timeline-item" onclick="showDescription('vietnam')"><span class="timeline-date">2023-2025</span><br><strong>Entrepreneur</strong></div>
+                <div class="timeline-item" onclick="showDescription('techreturn')"><span class="timeline-date">2025-Now</span><br><strong>Back to Tech</strong></div>
             </div>
+
             <div id="beldef" class="description"><span class="typing" style="--n:200">As students in the Royal Military Academy, we also are active members of the Belgian Defence. <br> I was a Non-Commissioned Officer from 2016 to 2019, and then took an oath and became an Officer.</span></div>
 
             <div id="horeca" class="description"><span class="typing" style="--n:500">While finishing my Master's, and preparing for my long travel, I was flexi-jobbing in different places. <br> I was a bartender in the fancy <span class="emphase">C12</span> nightclub, a waiter for the delicious <span class="emphase">Gueuleton</span> caterer, and a multi-purpose staff for <span class="emphase">Hey Charlie.</span></span></div>
 
-            <div id="vietnam" class="description"><span class="typing" style="--n:500">The initial purpose was to travel South-East Asia. Which I did, but while in Vietnam, I also founded a bar, then co-founded and managed another bar, and finally co-founded and managed a backpackers hostel, which is now one of the most popular in the region ! It's the <i><span class="emphase">Gecko Backpackers Hostel</span></i> in Tam Coc, Ninh Binh Region, Vietnam.</span></div>
+            <div id="vietnam" class="description"><span class="typing" style="--n:500">Originally set out to travel Southeast Asia—mission accomplished! But while in Vietnam, I also founded a bar, then co-founded and managed another bar, and finally co-founded and managed a backpackers hostel, which is now one of the most popular in the region ! It's the <a href="https://www.booking.com/hotel/vn/van-lam-homestay-1"><i><span class="emphase">Gecko Backpackers Hostel</span></i></a> in Tam Coc, Ninh Binh Region, Vietnam.</span></div>
+            
+            <div id="techreturn" class="description"><span class="typing" style="--n:500">
+            After my adventure-filled escapade through entrepreneurship and Asia, I'm rebooting my tech career — with caffeine, curiosity, and clean code. Ready to join an innovative team and bring a cocktail of engineering logic, problem-solving mindset, and project management flair to the table.</span></div>
+
+
         </div>
 
-        <!-- Projects  --> 
+
+        <!-- Tech Projects --> 
         <div class="section">
-            <h2 onclick="toggleSection('projects')" class="brush-highlight">Projects</h2>
-            <div id="projects" class="timeline-container" style="display: none;">
-                <div class="timeline-item" onclick="showDescription('proj1')"><span class="timeline-date">2018</span><br><strong>Dassault UAV Challenge</strong></div>
-                <div class="timeline-item" onclick="showDescription('proj2')"><span class="timeline-date">2023</span><br><strong>FOSDEM</strong></div>
-                <div class="timeline-item" onclick="showDescription('proj3')"><span class="timeline-date">2023</span><br><strong>TMPL</strong></div>
+            <h2 onclick="toggleSection('techprojects')" class="brush-highlight">Tech Projects</h2>
+            <div id="techprojects" class="timeline-container" style="display: none;">
+            <div class="timeline-item" onclick="showDescription('uav')"><span class="timeline-date">2018</span><br><strong>Dassault UAV Challenge</strong></div>
+            <div class="timeline-item" onclick="showDescription('boat')"><span class="timeline-date">2018</span><br><strong>PID Controller</strong></div>
+            <div class="timeline-item" onclick="showDescription('leukemia')"><span class="timeline-date">2019</span><br><strong>Blood Cell Classifier</strong></div>
+            <div class="timeline-item" onclick="showDescription('vehicle')"><span class="timeline-date">2020</span><br><strong>GC Vehicle</strong></div>
+            <div class="timeline-item" onclick="showDescription('swarm')"><span class="timeline-date">2021</span><br><strong>Swarm Robotics</strong></div>
+            <div class="timeline-item" onclick="showDescription('fortran')"><span class="timeline-date">2021</span><br><strong>Compiler Contributor</strong></div>
        
             </div>
-            <div id="proj1" class="description"><span class="typing" style="--n:500">With the "<i>171 POL</i>" dream team, we managed to <i>win</i> the 2018 edition of the reputable UAV Challenge organized by Dassault Aviation. <br> For the finals that happened in Switzerland, we were the only team to be able to successfully execute all the missions, which launched us to the first place, in front of many renowned Belgian, French, and Swiss engineering universities.</span></div>
-            <div id="proj2" class="description"><span class="typing" style="--n:500">I was part of the team organizing the 2023 FOSDEM, one of the biggest open source developers meeting worldwide ! <br>That year, while celebrating 25 years of open-source(ness) I was in the 3-team of beverages manager, making sure that the <span class="emphase">780</span> speakers and <span class="emphase"> 8000 </span> (!) attendees could quench their thirst properly with one of our <span class="emphase"> 60 </span> different beers. </span></div>
+
+            <div id="uav" class="description"><span class="typing" style="--n:500">With the "<i>171 POL</i>" dream team, we managed to <i>win</i> the 2018 edition of the reputable UAV Challenge organized by Dassault Aviation. <br> For the finals that happened in Switzerland, we were the only team to be able to successfully execute all the missions, which launched us to the first place, in front of many renowned Belgian, French, and Swiss engineering universities.</span></div>
+
+            <div id="boat" class="description"><span class="typing" style="--n:400">Designed and tuned a PID controller to stabilize a miniature boat in MATLAB. Basically taught it how to cruise like a pro without capsizing — which is harder than it sounds. And root locus takes time.</span></div>
+
+
+            <div id="swarm" class="description"><span class="typing" style="--n:600">Implemented swarm robotics behaviors using decentralized logic and vision-based navigation. Authored a paper titled "Collective foraging in a heterogeneous swarm," because even robots deserve a lunch break.</span></div>
+
+            <div id="vehicle" class="description"><span class="typing" style="--n:500">Built an RC vehicle you could drive with Jedi-like hand gestures. Designed a custom comm protocol in C to make the magic happen. Geeky? Yes. Cool? Definitely.</span></div>
+
+            <div id="leukemia" class="description"><span class="typing" style="--n:500">Developed a deep learning model (Keras + CNNs) to classify blood cell images. My code could tell a lymphocyte from a monocyte quicker than I can say "hematopoiesis."</span></div>
+
+            <div id="fortran" class="description"><span class="typing" style="--n:400">Contributed to an academic project rewriting a FORTRAN-to-LLVM compiler backend in Java. <br> Not quite building Skynet yet, but getting close.</span></div>
+        </div>
+
+
+        <!-- Other Projects  --> 
+        <div class="section">
+            <h2 onclick="toggleSection('projects')" class="brush-highlight">Event Projects</h2>
+            <div id="projects" class="timeline-container" style="display: none;">
+                <div class="timeline-item" onclick="showDescription('proj2')"><span class="timeline-date">2023</span><br><strong>FOSDEM</strong></div>
+                <div class="timeline-item" onclick="showDescription('proj3')"><span class="timeline-date">2023</span><br><strong>TMPL</strong></div>
+            </div>
+            
+            <div id="proj2" class="description"><span class="typing" style="--n:500">I was part of the team organizing the 2023 FOSDEM, one of the biggest open source developers meeting worldwide ! <br>That year, while celebrating 25 years of open-source(ness) I was part of the 3-person beverage management team, making sure that the <span class="emphase">780</span> speakers and <span class="emphase"> 8000 </span> (!) attendees could quench their thirst properly with one of our <span class="emphase"> 60 </span> different beers. </span></div>
+
             <div id="proj3" class="description"><span class="typing" style="--n:500">Later on that year, with the CI (Cercle Informatique), we decided to organize another cultural event.<br> We thus created "TomorrowPlaine", where I was designated general manager. For that first edition, we completely overpassed our expectations and managed to bring together a bit less than 1000 participants ! The event is now still running every year, and is well known in the university community. </span></div>
         </div>
 
+        
 
+        <!-- Skills -->
+        <div class="section">
+            <h2 class="brush-highlight" onclick="toggleSectionTwoCols('skills')">Skills</h2>
+            <div id="skills" class="two-column-container hidden">
+                <div class="column">
+                    <h3 class="emphase">Soft & Smart</h3>
+                    <p><strong>Leadership</strong>: leading teams in tech and buzzling environments</p>
+                    <p><strong>Project Management</strong>: deadlines don't scare me</p>
+                    <p><strong>Communication</strong>: human-friendly and dev-friendly</p>
+                    <p><strong>Adaptability</strong>: from jungle hostels to office chairs</p>
+                </div>
+
+                <div class="column">
+                    <h3 class="emphase">Hard-Tech</h3>
+                    <p><strong>Web</strong>: HTML/CSS, a pinch of JS</p>
+                    <p><strong>Optimization & AI</strong>: ants (ACO), neurons, simplex and heuristics</p>
+                    <p><strong>Data</strong>: Pandas, NumPy, R, Keras</p>
+                    <p><strong>IoT/Controller</strong>: PID Design</p>
+                    <p><strong>Version Control</strong>: Git-savvy</p>
+                    <p><strong>Linux</strong>: bash life forever</p>
+                    <p><strong>GNS3, Cisco</strong>: old school networker</p>
+                    <p><strong>Miscellaneous Cool</strong>: Compiler parsing (Java), NLP with DCG/Prolog, brain MRI segmentation, and a knack for anything logical</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Languages --> 
         <div class="section">
             <h2 class="brush-highlight" onclick="toggleSectionTwoCols('languages')">Languages</h2>
             <div id="languages" class="two-column-container hidden">
@@ -98,18 +162,16 @@
                     <p><strong><span class="emphase">C/C++</span></strong>: intermediate/experienced</p>
                     <p><strong><span class="emphase">Matlab</span></strong>: intermediate</p>
                     <p><strong><span class="emphase">R</span></strong>: intermediate</p>
+                    <p><strong><span class="emphase">Bash</span></strong>: intermediate</p>
                     <p><strong>Scheme</strong>: intermediate</p>
                     <p><strong>Prolog</strong>: intermediate</p>
                     <p><strong><span class="emphase">ASM (RISC)</span></strong>: beginner/intermediate</p>
                     <p><strong>Java</strong>: beginner</p>
                     <p><strong>Lua</strong>: beginner</p>
-                    <p style="font-family: monospace;"> In <span class="emphase">purple</span> are languages in which I'll need a refresh as it has been a long time since using them.</h4>
+                    <p style="font-family: monospace;"> In <span class="emphase">purple</span> are languages in which I'll need a refresh as it has been a long time since using them.</p>
                 </div>
             </div>
         </div>
-
-
-    </div>
 
     <script src="script.js"></script>
 </body>
