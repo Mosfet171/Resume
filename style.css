@@ -54,7 +54,8 @@ h1, h2, h3 {
 }
 
 .section {
-    margin-bottom: 10px;
+    margin-bottom: 1px;
+    margin-top: 1px;
 }
 
 .brush-highlight {
